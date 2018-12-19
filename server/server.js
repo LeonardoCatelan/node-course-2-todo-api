@@ -47,11 +47,11 @@ app.get('/todos/:id', (req, res) => {
         return res.status(404).send();
     }
 
-    Todo.findById(id).then((text) => {
-        if(!text){
+    Todo.findById(id).then((todo) => {
+        if(!todo){
             return res.status(404).send();
         }
-        return res.send({text});
+        return res.send({todo});
     }).catch((e) => {
         res.status(400).send();
     });
